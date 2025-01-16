@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Dapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using MyWebApi.Model;
 
 namespace MyWebApi.Controllers
@@ -119,5 +121,48 @@ namespace MyWebApi.Controllers
 
 
         }
+        public static string conStr = "Server=LERA;Database=ado;Trusted_Connection=True;TrustServerCertificate=True;";
+
+        [HttpPost, Route("Method_8")]
+        public ActionResult ReturnJson()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            using (SqlConnection db = new SqlConnection(conStr))
+            {
+                try
+                {
+                    var res = db.Query<Books>("pBooks",
+                     commandType: System.Data.CommandType.StoredProcedure);
+
+                    return Ok(res);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(new
+                    {
+                        Message = "An error occurred while processing the request.",
+                        Details = ex.Message
+                    });
+                }
+            }
+        }
+
+
+        [HttpPut, Route("Method_9")]
+        public ActionResult Method_9(Books book)
+        {
+            using (SqlConnection db = new SqlConnection(conStr))
+            {
+                DynamicParameters p = new DynamicParameters(book);
+                db.Execute("pBooks;2", p, commandType: System.Data.CommandType.StoredProcedure);
+                return Ok("Updated");
+
+            }
+        }
+
     }
 }
