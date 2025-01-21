@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using MyWebApi.Model;
+using System.Text;
 
 namespace MyWebApi.Controllers
 {
@@ -32,11 +33,11 @@ namespace MyWebApi.Controllers
         }
 
 
-        [HttpPost, Route("Method_4")]
-        public ActionResult Method_4(Book book)
-        {
-            return Ok($"{book.Author} - {book.Name} - {book.Content}");
-        }
+        //[HttpPost, Route("Method_4")]
+        //public ActionResult Method_4(Book book)
+        //{
+        //    return Ok($"{book.Author} - {book.Name} - {book.Content}");
+        //}
 
         [HttpGet, Route("Method_5/{a}/{b}/{c}")]
         public ActionResult Method_5(double a, double b, double c)
@@ -164,5 +165,93 @@ namespace MyWebApi.Controllers
             }
         }
 
-    }
+        [HttpPost, Route("Method_10")]
+        public ActionResult Method_10(AuthorMain model)
+        {
+                StringBuilder sb = new StringBuilder();
+            foreach(var item in model.Books)
+            {
+                sb.AppendLine($"{item.Name} - {model.Author}");
+            }    
+
+            return Ok(sb.ToString());
+        }
+
+
+
+        [HttpGet, Route("Method_11")]
+        public int Method_11(string id)
+        {
+            return
+            int.Parse(id) * int.Parse(id);
+        }
+
+        [HttpPost, Route("Method_12")]
+        public ActionResult Method_12(string[] id)
+        {
+            return Ok(id.Length);
+        }
+
+
+        [HttpGet, Route("Method_13")]
+        public Books Method_13(string Author, string BookName)
+        {
+            return (new Books { Name = BookName, Author = Author });
+        }
+
+        [HttpGet, Route("Method_14")]
+        public ActionResult Method_14(string id)
+        {
+            if(id == "1")
+            return Ok();
+            else if (id == "2")
+                return NotFound("Not found");
+            else if (id == "3")
+                return BadRequest("Wrong params");
+            else if (id == "4")
+                return Unauthorized("No auth");
+            else if (id == "5")
+                return NoContent();
+            else
+                return Ok();
+
+
+        }
+        [HttpGet, Route("ReturnFile")]
+        public ActionResult ReturnFiles(string name)
+        {
+            var environment = HttpContext.RequestServices.GetService(typeof(IWebHostEnvironment)) as IWebHostEnvironment;
+            if (environment == null)
+            {
+                return StatusCode(500, "Неправильно указаны данные");
+            }
+           string path = environment.ContentRootPath;
+            string filePath = Path.Combine(path, name);
+            if (System.IO.File.Exists(filePath))
+            {
+
+                string contentType = GetMimeType(filePath);
+
+                return PhysicalFile(filePath, contentType, name);
+            }
+            else
+            {
+               
+                return NotFound(new { Message = $"Файл '{name}' не найден" });
+            }
+        }
+
+        private string GetMimeType(string filePath)
+        {
+            string extension = Path.GetExtension(filePath).ToLower();
+            return extension switch
+            {
+                ".txt" => "text/plain",
+                ".docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                ".xlsx" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                ".pdf" => "application/pdf",
+                _ => "application/octet-stream",
+            };
+        }
+    } 
 }
