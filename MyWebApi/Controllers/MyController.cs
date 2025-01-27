@@ -253,5 +253,17 @@ namespace MyWebApi.Controllers
                 _ => "application/octet-stream",
             };
         }
+
+        [HttpPost, Route("Method_15")]
+        public ActionResult Method_15([FromBody] string id)
+        {
+            return Ok(id);
+        }
+
+        [HttpGet, Route("Method_16")]
+        public ActionResult Method_16([FromQuery] Students std)
+        {
+            return Ok($"{std.id}  {std.firstname}");
+        }
     } 
 }
