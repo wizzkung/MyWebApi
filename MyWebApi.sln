@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebApi", "MyWebApi\MyWebA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWebApiBasicAuth", "MyWebApiBasicAuth\MyWebApiBasicAuth.csproj", "{C87FFCCD-FBF7-4BDC-B82F-16CED03A067F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JVT_Token", "JVT_Token\JVT_Token.csproj", "{8C828D99-3AF1-41FA-9972-5F6CD1E9A7F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAuthentication", "WindowsAuthentication\WindowsAuthentication.csproj", "{363F2229-45A6-459D-9423-6DF0521BDE81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyJQuery", "MyJQuery\MyJQuery.csproj", "{7B254AEF-D6D0-491F-96CE-6CE78471FD17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{C87FFCCD-FBF7-4BDC-B82F-16CED03A067F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C87FFCCD-FBF7-4BDC-B82F-16CED03A067F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C87FFCCD-FBF7-4BDC-B82F-16CED03A067F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C828D99-3AF1-41FA-9972-5F6CD1E9A7F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C828D99-3AF1-41FA-9972-5F6CD1E9A7F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C828D99-3AF1-41FA-9972-5F6CD1E9A7F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C828D99-3AF1-41FA-9972-5F6CD1E9A7F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{363F2229-45A6-459D-9423-6DF0521BDE81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{363F2229-45A6-459D-9423-6DF0521BDE81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{363F2229-45A6-459D-9423-6DF0521BDE81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{363F2229-45A6-459D-9423-6DF0521BDE81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B254AEF-D6D0-491F-96CE-6CE78471FD17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B254AEF-D6D0-491F-96CE-6CE78471FD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B254AEF-D6D0-491F-96CE-6CE78471FD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B254AEF-D6D0-491F-96CE-6CE78471FD17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

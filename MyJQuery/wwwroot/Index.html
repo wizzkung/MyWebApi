@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/jquery-confirm.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-confirm.js"></script>
+    <!--<script src="Scripts/MyJS.js"></script>-->
+    <script>
+        $(document).ready(function () {
+            var name = $('#tbTest').val();
+            $("#btn1").click(function () {
+                 $.ajax
+                     ({
+                         type: "GET",
+                         url: "http://localhost:5099/test/sayhello/step" + name,
+                         success: function (data) {
+                             console.log(data);
+                         },
+                         error: function () {
+                             console.log("error")
+                         }
+                     });
+            });
+            $("#btn2").click(function () {
+                $("#test2").html("<b>Hello world!</b>");
+            });
+            $("#btn3").click(function () {
+                $("#test3").val("Dolly Duck");
+            });
+        })
+        </script>
+</head>
+
+<body>
+    <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+    <p id="test2">This is another paragraph.</p>
+
+    <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+    <button id="btn1">TestGetAPI</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Value</button>
+
+    <button id="myButton">
+        Hello
+    </button>
+    <button id="myButton2">
+        Hello2
+    </button>
+    <input type="text" value="hello world" id="tbTest" />
+    <div id="divTest">
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <select id="cbCity" class="form-control">
+            </select>
+        </div>
+    </div>
+
+    <button onclick="confirm()">
+        confirm1
+    </button>
+
+    <button onclick="showModal()">
+        showModal
+    </button>
+
+    <button onclick="createCity()">
+        createCity
+    </button>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit book</h4>
+                </div>
+                <div class="modal-body" style="padding:40px 50px;">
+                    <div class="form-group">
+                        <label for="Title">Title</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="Year">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter year">
+                    </div>
+                    <div class="form-group">
+                        <label for="cbAuthor">cbAuthor</label>
+                        <select id="cbAuthor" class="form-control">
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cbCategory">cbCategory</label>
+                        <select id="cbCategory" class="form-control">
+                            <option></option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block" onclick="Edit2();">Edit</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
