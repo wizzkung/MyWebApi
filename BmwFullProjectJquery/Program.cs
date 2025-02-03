@@ -1,4 +1,4 @@
-namespace MyJQuery
+namespace BmwFullProjectJquery
 {
     public class Program
     {
