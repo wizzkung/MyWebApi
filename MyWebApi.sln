@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAuthentication", "Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyJQuery", "MyJQuery\MyJQuery.csproj", "{7B254AEF-D6D0-491F-96CE-6CE78471FD17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BmwFullProjectJquery", "BmwFullProjectJquery\BmwFullProjectJquery.csproj", "{0C81E8F4-9CF6-460D-B105-6BAFAC91EE31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7B254AEF-D6D0-491F-96CE-6CE78471FD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B254AEF-D6D0-491F-96CE-6CE78471FD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B254AEF-D6D0-491F-96CE-6CE78471FD17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C81E8F4-9CF6-460D-B105-6BAFAC91EE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C81E8F4-9CF6-460D-B105-6BAFAC91EE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C81E8F4-9CF6-460D-B105-6BAFAC91EE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C81E8F4-9CF6-460D-B105-6BAFAC91EE31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
