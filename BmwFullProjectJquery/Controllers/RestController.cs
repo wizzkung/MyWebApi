@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace BmwFullProjectJquery.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController, Authorize]
     public class RestController : ControllerBase
     {
         IConfiguration _configuration;

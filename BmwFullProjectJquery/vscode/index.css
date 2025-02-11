@@ -10,10 +10,11 @@ body {
     background-size: cover;
     min-height: 100vh;
     color: #fff;
+    /* Добавляем запасной чёрный цвет, чтобы не было белой вспышки до загрузки */
     background-color: #000;
   }
   
- 
+  /* Новый код: чёрная вуаль, плавно исчезающая */
   body::before {
     content: "";
     position: fixed;
@@ -407,6 +408,7 @@ tr:hover {
     }
 }
 
+/* Row animation for CRUD operations */
 .row-add {
     animation: rowAdd 0.5s ease;
 }
@@ -433,6 +435,7 @@ tr:hover {
     }
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
