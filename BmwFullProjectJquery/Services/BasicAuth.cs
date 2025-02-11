@@ -6,7 +6,6 @@ using System.Text.Encodings.Web;
 using System.Text;
 using Dapper;
 using Microsoft.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
 
 
 namespace MyWebApiBasicAuth.Auth
@@ -18,7 +17,7 @@ namespace MyWebApiBasicAuth.Auth
         {
             _configuration = configuration; 
         }
-        [HttpGet, Route("Auth")]
+
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             if (!Request.Headers.ContainsKey("Authorization"))
@@ -74,7 +73,7 @@ namespace MyWebApiBasicAuth.Auth
                 param.Add("@login", login);
                 param.Add("@pass", pass);
 
-                var res = await db.ExecuteScalarAsync<bool>("pCheckPass", param, commandType: System.Data.CommandType.StoredProcedure);
+                var res = await db.ExecuteScalarAsync<bool>("CheckPass", param, commandType: System.Data.CommandType.StoredProcedure);
                 return res;
             }
         }

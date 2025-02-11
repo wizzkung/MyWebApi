@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication;
+using MyWebApiBasicAuth.Auth;
+
 namespace BmwFullProjectJquery
 {
     public class Program
@@ -8,6 +11,8 @@ namespace BmwFullProjectJquery
             builder.Services.AddCors();
             builder.Services.AddControllers();
             builder.Services.AddHttpClient();
+            //builder.Services.AddAuthentication("BasicAuthentication")
+            //.AddScheme<AuthenticationSchemeOptions, BasicAuth>("BasicAuthentication", null);
 
             var app = builder.Build();
             app.UseCors(builder => builder
@@ -20,7 +25,7 @@ namespace BmwFullProjectJquery
             
             app.UseStaticFiles();
             
-            app.UseAuthentication();
+          // app.UseAuthentication();
             
             app.UseAuthorization();
             

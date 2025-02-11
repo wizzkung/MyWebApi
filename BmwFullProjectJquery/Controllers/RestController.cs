@@ -7,6 +7,10 @@ using BmwFullProjectJquery.Model;
 using BmwFullProjectJquery.DTO;
 using OfficeOpenXml;
 using System.Text;
+using BmwFullProjectJquery.Services;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using BmwFullProjectJquery.Model.DeepSeek;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BmwFullProjectJquery.Controllers
 {
@@ -20,6 +24,12 @@ namespace BmwFullProjectJquery.Controllers
             _configuration = configuration;
         }
 
+        //[HttpGet("Auth"), Authorize(AuthenticationSchemes = "BasicAuthentication")]
+        //public ActionResult Auth()
+        //{
+        //    // Если BasicAuthHandler вернёт успех, вы попадёте сюда
+        //    return Ok("Вы успешно авторизовались на сайте!");
+        //}
 
         [HttpGet, Route("GetAll")]
         public async Task<IActionResult> GetAllCars()
@@ -93,7 +103,7 @@ namespace BmwFullProjectJquery.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+            
         [HttpPost, Route("Update")]
         public async Task<IActionResult> UpdateModel(ModelTypeDTOUpdate bmw)
         {
@@ -159,7 +169,6 @@ namespace BmwFullProjectJquery.Controllers
 
                 worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
 
-                // Возвращаем файл
                 var stream = new MemoryStream(package.GetAsByteArray());
                 return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Report.xlsx");
 
@@ -210,10 +219,38 @@ namespace BmwFullProjectJquery.Controllers
             }
         }
 
+        [HttpPost, Route("deepSeek")]
+        public async Task<IActionResult> GenerateModelDescription([FromBody] ModelRequest request)
+        {
+            try
+            {
+                using var deepSeek = new DeepSeekChatService(_configuration["DeepSeek:ApiKey"]);
 
+                var messages = new List<ChatMessage>
+            {
+                new("system", "You are a BMW expert assistant. Provide detailed technical specifications in Markdown format."),
+                new("user", $"Generate detailed description for BMW {request.ModelName} in Russian. Include: production years, engine options, technical innovations and historical significance.")
+            };
 
+                var response = await deepSeek.SendChatAsync(messages);
 
+                if (response.error != null)
+                    return BadRequest(new { error = response.error.message });
 
-
+                return Ok(new
+                {
+                    description = response.choices?.FirstOrDefault()?.message.content
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
     }
+
+
+
+
+
 }

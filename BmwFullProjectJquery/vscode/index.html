@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Models Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <a href="https://www.bmw.com/en/index.html"><div class="bmw-logo"></div></a>
+    <div class="container">
+        <div class="header">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search BMW models...">
+            </div>
+            <div class="crud-buttons">
+                <button class="btn-primary animate__animated animate__pulse" id="addNew">Add New Model</button>
+                <button class="btn-secondary" id="showAll">Show All</button>
+                <button class="btn-sign-in" id="signIn">Sign In</button>
+            </div>
+            <div class="filter-buttons">
+                <button class="btn-secondary" id="showBySeries">Show by Series</button>
+                <button class="btn-secondary" id="showByModel">Show by Model</button>
+            </div>
+            <div class="export-buttons">
+                <button class="btn-export" id="exportExcel">Export to Excel</button>
+                <button class="btn-export" id="exportCSV">Export to CSV</button>
+            </div>
+        </div>
+
+        <div class="grid">
+            <table id="bmwTable">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Series</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Modal for Add/Edit -->
+    <div id="modelModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">BMW Model</h2>
+            <form id="modelForm">
+                <input type="hidden" id="modelId">
+                <input type="hidden" id="oldModelName">
+                <input type="hidden" id="modalAction" value="add">
+                <div class="form-group">
+                    <label for="modelName">Model Name</label>
+                    <input type="text" id="modelName" required>
+                </div>
+                <div class="form-group">
+                    <label for="series">Series</label>
+                    <input type="text" id="series" required>
+                </div>
+                <button type="submit" class="btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+      <!-- New Modal for About -->
+      <div id="aboutModal" class="modal-about">
+        <div class="modal-about-content">
+            <span class="close-about">&times;</span>
+            <h2 id="aboutModalTitle">About BMW Model</h2>
+            <div id="aboutModalContent"></div>
+        </div>
+    </div>
+
+    <div id="signInModal" class="modal-sign-in">
+        <div class="modal-sign-in-content">
+            <span class="close-sign-in">&times;</span>
+            <h2>Sign In</h2>
+            <form id="signInForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
