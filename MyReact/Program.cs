@@ -7,12 +7,22 @@ namespace MyReact
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnyCorsPolicy",
+                    builder => builder
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                        .SetIsOriginAllowed((host) => true) //allow all connections (including Signalr)
+                    );
+            });
 
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
+            app.UseCors("AllowAnyCorsPolicy");
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
@@ -20,7 +30,6 @@ namespace MyReact
 
             app.UseStaticFiles();
             app.UseRouting();
-
 
             app.MapControllerRoute(
                 name: "default",
