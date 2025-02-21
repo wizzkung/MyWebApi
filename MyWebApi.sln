@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BmwFullProjectJquery", "Bmw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyReact", "MyReact\MyReact.csproj", "{C9E668A5-A3E3-4E7D-A2CD-D9DE8984896C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySOAP2", "..\..\..\OneDrive\Рабочий стол\MySOAP2\MySOAP2.csproj", "{0D3FD3C3-901A-47B1-A8F8-FD7F390B73D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportClub", "SportClub\SportClub.csproj", "{8E23D907-550F-4DAC-85D8-54B8C47772BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{C9E668A5-A3E3-4E7D-A2CD-D9DE8984896C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9E668A5-A3E3-4E7D-A2CD-D9DE8984896C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9E668A5-A3E3-4E7D-A2CD-D9DE8984896C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D3FD3C3-901A-47B1-A8F8-FD7F390B73D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3FD3C3-901A-47B1-A8F8-FD7F390B73D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3FD3C3-901A-47B1-A8F8-FD7F390B73D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3FD3C3-901A-47B1-A8F8-FD7F390B73D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E23D907-550F-4DAC-85D8-54B8C47772BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E23D907-550F-4DAC-85D8-54B8C47772BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E23D907-550F-4DAC-85D8-54B8C47772BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E23D907-550F-4DAC-85D8-54B8C47772BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minimal Front</title>
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+  />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container mt-4">
+    <button id="Auth" class="btn btn-primary mb-3">Авторизоваться</button>
+
+ <div id="mainContent" style="display: none;">
+
+
+      <h2>Расписание</h2>
+      <button id="getScheduleBtn" class="btn btn-primary mb-3">Получить расписание</button>
+      <button id="getStuffBtn" class="btn btn-info mb-3">Показать сотрудников</button>
+      <button id="getClientsBtn" class="btn btn-success mb-3">Показать клиентов</button>
+      <button id="getGymsBtn" class="btn btn-success mb-3">Показать залы</button>
+
+
+
+      <div id="scheduleData"></div>
+      <hr />
+      <div id="listData"></div>
+      <hr />
+
+
+      <h2>Смена пароля и телефона</h2>
+      <div class="form-group">
+        <input type="text" id="aboutId" class="form-control mb-2" placeholder="ID пользователя" />
+        <input type="text" id="phoneNum" class="form-control mb-2" placeholder="Номер телефона" />
+        <input type="text" id="oldPass" class="form-control mb-2" placeholder="Старый пароль" />
+        <input type="text" id="newPass" class="form-control mb-2" placeholder="Новый пароль" />
+        <button id="changeAboutBtn" class="btn btn-primary">Change About</button>
+      </div>
+      <hr />
+
+
+      <h2 id="h2Stuff">Добавить сотрудника</h2>
+      <div id="adminStuff" class="form-group">
+        <input type="text" id="firstName" class="form-control mb-2" placeholder="Имя" />
+        <input type="text" id="lastName" class="form-control mb-2" placeholder="Фамилия" />
+        <input type="text" id="dt" class="form-control mb-2" placeholder="Дата рождения" />
+        <input type="text" id="stuffPhone" class="form-control mb-2" placeholder="Телефон" />
+        <input type="text" id="status" class="form-control mb-2" placeholder="Статус (Trainer/Stuff)" />
+        <input type="text" id="login" class="form-control mb-2" placeholder="Login" />
+        <input type="text" id="password" class="form-control mb-2" placeholder="Password" />
+        <input type="text" id="userType" class="form-control mb-2" placeholder="User Type (0, 1, 2)" />
+        <input type="text" id="specializations" class="form-control mb-2" placeholder="Specializations (0,1,2 (Через запятую))" />
+        <button id="addStuffBtn" class="btn btn-primary">Add Stuff</button>
+      </div>
+      <hr />
+
+
+      <h2 id="h2Client">Добавить клиента</h2>
+      <div id="adminClient" class="form-group">
+        <input type="text" id="cFirstName" class="form-control mb-2" placeholder="Имя" />
+        <input type="text" id="cLastName" class="form-control mb-2" placeholder="Фамилия" />
+        <input type="text" id="cDt" class="form-control mb-2" placeholder="Дата рождения" />
+        <input type="text" id="cPhone" class="form-control mb-2" placeholder="Телефон" />
+        <input type="text" id="cGender" class="form-control mb-2" placeholder="Пол (male/female)" />
+        <input type="text" id="cLogin" class="form-control mb-2" placeholder="Логин" />
+        <input type="text" id="cPass" class="form-control mb-2" placeholder="Пароль" />
+        <button id="addClientBtn" class="btn btn-primary">Add Client</button>
+      </div>
+
+       <h2 id="h2Schedule">Добавить расписание</h2>
+      <div id="adminSchedule" class="form-group">
+        <input type="text" id="cStuff_id" class="form-control mb-2" placeholder="ID Сотрудника" />
+        <input type="text" id="сSpecialization_id" class="form-control mb-2" placeholder="Выбор специализации (1,2,3)" />
+        <input type="text" id="cGroupSchedule" class="form-control mb-2" placeholder="Групповые занятия" />
+        <input type="text" id="cIndividual_schedule" class="form-control mb-2" placeholder="Индивидуальные занятия" />
+        <button id="addScheduleBtn" class="btn btn-primary">Add Schedule</button>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Авторизация</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="loginInput">Логин</label>
+            <input type="text" class="form-control" id="loginInput" placeholder="Введите логин">
+          </div>
+          <div class="form-group">
+            <label for="passwordInput">Пароль</label>
+            <input type="password" class="form-control" id="passwordInput" placeholder="Введите пароль">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button id="loginButton" type="button" class="btn btn-primary">Войти</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+</body>
+  <script src="script.js"></script>
+</html>
